@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Act Marketing — Digital marketing that moves</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14181D; --paper:#F0ECE3; --signal:#E8481C; --moss:#29463E; --line:#C9C2B4;
+    --paper-2:#E6E1D5;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:inherit;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);}
+  html,body{height:100%;margin:0;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --paper:#181410; --paper-2:#221C16; --ink:#F0ECE3; --line:#3A332A; }
+  }
+  :root[data-theme="dark"]{ --paper:#181410; --paper-2:#221C16; --ink:#F0ECE3; --line:#3A332A; }
+
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+  section{padding:88px 0;}
+  @media (max-width:640px){ section{padding:56px 0;} }
+
+  /* header */
+  header{position:sticky; top:0; top:env(safe-area-inset-top,0px); z-index:10; background:var(--paper); border-bottom:1px solid var(--line);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:20px 28px; max-width:1080px; margin:0 auto;}
+  .mark{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px;}
+  .mark span{color:var(--signal);}
+  .navlinks{display:flex; gap:28px; font-size:14px;}
+  .navlinks a{text-decoration:none; opacity:.75;}
+  .navlinks a:hover{opacity:1;}
+  .btn{
+    display:inline-block; background:var(--signal); color:#fff; text-decoration:none;
+    padding:12px 22px; border-radius:2px; font-size:14px; font-weight:500;
+    border:1px solid var(--signal);
+  }
+  .btn:hover{background:transparent; color:var(--signal);}
+  .btn:focus-visible, a:focus-visible, button:focus-visible{outline:2px solid var(--signal); outline-offset:3px;}
+
+  /* hero */
+  .hero{padding:100px 0 70px;}
+  .hero h1{font-size:clamp(40px,7vw,86px); line-height:0.98; font-weight:700; max-width:820px;}
+  .hero p{max-width:460px; margin-top:26px; font-size:17px; opacity:.85;}
+  .hero-cta{margin-top:36px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;}
+  .hero-cta .ghost{font-size:14px; opacity:.75; text-decoration:underline; text-underline-offset:3px;}
+
+  /* verbs / services — spells ACT */
+  .verbs{border-top:1px solid var(--line);}
+  .verb-row{display:grid; grid-template-columns:120px 1fr; gap:24px; padding:40px 0; border-bottom:1px solid var(--line); align-items:start;}
+  .verb-row:last-child{border-bottom:none;}
+  .verb-letter{font-family:'Space Grotesk',sans-serif; font-size:72px; font-weight:700; color:var(--signal); line-height:1;}
+  .verb-title{font-size:26px; font-weight:600; margin-bottom:10px;}
+  .verb-body{max-width:560px; opacity:.85;}
+  .verb-list{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; padding:0; list-style:none;}
+  .verb-list li{font-size:13px; border:1px solid var(--line); padding:6px 12px; border-radius:2px; opacity:.85;}
+  @media (max-width:640px){ .verb-row{grid-template-columns:1fr;} .verb-letter{font-size:44px;} }
+
+  /* stats */
+  .stats{background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .stat-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px;}
+  .stat-num{font-family:'Space Grotesk',sans-serif; font-size:clamp(32px,4vw,48px); font-weight:700;}
+  .stat-label{font-size:14px; opacity:.75; margin-top:6px;}
+  @media (max-width:640px){ .stat-grid{grid-template-columns:1fr; gap:36px;} }
+
+  /* process */
+  .process-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px;}
+  .process-copy p{max-width:420px; opacity:.85; margin-top:16px;}
+  .steps{display:flex; flex-direction:column; gap:0;}
+  .step{display:flex; gap:18px; padding:18px 0; border-top:1px solid var(--line);}
+  .step:last-child{border-bottom:1px solid var(--line);}
+  .step-name{font-weight:600; min-width:110px; font-size:15px;}
+  .step-desc{font-size:14px; opacity:.8;}
+  @media (max-width:760px){ .process-grid{grid-template-columns:1fr;} }
+
+  /* CTA footer */
+  .cta{background:var(--ink); color:var(--paper);}
+  .cta h2{font-size:clamp(30px,5vw,52px); max-width:680px;}
+  .cta p{margin-top:16px; opacity:.75; max-width:440px;}
+  .cta .btn{margin-top:28px; background:var(--signal); border-color:var(--signal);}
+  .cta .btn:hover{background:transparent; color:var(--signal);}
+
+  footer{padding:28px; font-size:13px; opacity:.6; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; max-width:1080px; margin:0 auto;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="mark">act<span>.</span></div>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact">Start a project</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Marketing that gets people to act.</h1>
+    <p>We build campaigns that move people from scrolling to buying — attention, then conversion, then proof it worked. No vanity metrics.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#contact">Start a project</a>
+      <a class="ghost" href="#services">See how we work</a>
+    </div>
+  </div>
+</section>
+
+<section class="verbs" id="services">
+  <div class="wrap">
+    <div class="verb-row">
+      <div class="verb-letter">A</div>
+      <div>
+        <div class="verb-title">Attract</div>
+        <div class="verb-body">We put your brand in front of the people already looking for you — paid search, paid social, and SEO built around real buying intent, not just impressions.</div>
+        <ul class="verb-list">
+          <li>Paid search</li><li>Paid social</li><li>SEO</li><li>Content strategy</li>
+        </ul>
+      </div>
+    </div>
+    <div class="verb-row">
+      <div class="verb-letter">C</div>
+      <div>
+        <div class="verb-title">Convert</div>
+        <div class="verb-body">Traffic is only worth what it does next. We design landing pages, email flows, and offers that turn interest into a signed-up, checked-out customer.</div>
+        <ul class="verb-list">
+          <li>Landing pages</li><li>Email &amp; SMS flows</li><li>CRO testing</li><li>Offer design</li>
+        </ul>
+      </div>
+    </div>
+    <div class="verb-row">
+      <div class="verb-letter">T</div>
+      <div>
+        <div class="verb-title">Track</div>
+        <div class="verb-body">Every dollar gets a receipt. We wire up attribution and reporting so you know exactly what's working — and cut what isn't, fast.</div>
+        <ul class="verb-list">
+          <li>Attribution setup</li><li>Dashboards</li><li>Monthly reporting</li><li>Budget re-allocation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-grid">
+      <div>
+        <div class="stat-num">3.4x</div>
+        <div class="stat-label">Average return on ad spend across active accounts</div>
+      </div>
+      <div>
+        <div class="stat-num">40+</div>
+        <div class="stat-label">Brands currently running campaigns with us</div>
+      </div>
+      <div>
+        <div class="stat-num">6 wks</div>
+        <div class="stat-label">Typical time from kickoff to first live campaign</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap process-grid">
+    <div class="process-copy">
+      <h2>How a project runs</h2>
+      <p>Short cycles, clear ownership. You'll know what's live, what it's costing, and what it's returning at every point.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-name">Week 1</div><div class="step-desc">Audit your current channels, audience, and past results — we start from what's already true, not a template.</div></div>
+      <div class="step"><div class="step-name">Weeks 2–3</div><div class="step-desc">Build the first campaigns: creative, targeting, landing pages, and tracking, all reviewed with you before launch.</div></div>
+      <div class="step"><div class="step-name">Weeks 4–6</div><div class="step-desc">Launch, monitor daily, and reallocate budget toward what's converting.</div></div>
+      <div class="step"><div class="step-name">Ongoing</div><div class="step-desc">Monthly reporting call, plus a live dashboard you can check anytime.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Tell us what you're trying to sell, and to whom.</h2>
+    <p>We'll reply within one business day with a short read on where the quickest wins are.</p>
+    <a class="btn" href="mailto:hello@actmarketing.co">hello@actmarketing.co</a>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 Act Marketing</div>
+  <div>Attract · Convert · Track</div>
+</footer>
+
+</body>
+</html>
